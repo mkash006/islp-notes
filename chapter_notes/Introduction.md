@@ -1,3 +1,8 @@
+---
+title: "Introduction and statistical learning"
+subtitle: "ISLP chapters 1 and 2"
+---
+
 # Notation
 $n$ denotes data points or the number of observations
 $p$ denotes the number of variables available to make predictions; predictors or variables are often called features in statistical learning

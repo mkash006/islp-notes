@@ -1,0 +1,73 @@
+project:
+  type: website
+  output-dir: _site
+  # Obsidian keeps writing to chapter_notes/, so nothing here renames or moves
+  # the notes; the sidebar just points at the files where they already live.
+  render:
+    - index.qmd
+    - chapter_notes/*.md
+    - python_labs/*.ipynb
+
+website:
+  title: "ISLP Notes"
+  description: "Notes and worked Python labs for An Introduction to Statistical Learning with Applications in Python"
+  site-url: https://mkash006.github.io/islp-notes
+  repo-url: https://github.com/mkash006/islp-notes
+  repo-actions: [source]
+  navbar:
+    pinned: true
+    left:
+      - href: index.qmd
+        text: Overview
+    right:
+      - text: "Portfolio"
+        href: https://mkash006.github.io
+      - icon: github
+        href: https://github.com/mkash006/islp-notes
+        aria-label: GitHub
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+      - text: Overview
+        href: index.qmd
+      - section: "Chapter notes"
+        contents:
+          - chapter_notes/Introduction.md
+      - section: "Python labs"
+        contents:
+          - python_labs/ISLP_Intro.ipynb
+  page-footer:
+    background: primary
+    left: "© 2026 Mayank Kashyap"
+    right: "Built with [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - theme.scss
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    toc-title: "On this page"
+    code-copy: true
+    code-overflow: wrap
+    code-fold: false
+    link-external-newwindow: true
+    grid:
+      sidebar-width: 270px
+      body-width: 860px
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+# Notebook outputs are taken as they were saved in Jupyter. Nothing is
+# re-executed at build time, so the site builds without ISLP, scikit-learn or
+# the datasets installed on the runner.
+execute:
+  enabled: false
+  freeze: auto

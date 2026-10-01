@@ -1,0 +1,60 @@
+---
+title: "ISLP Notes"
+subtitle: "Working through *An Introduction to Statistical Learning with Applications in Python*"
+---
+
+These are my notes and worked labs for ISLP, written as I read the book rather
+than assembled afterwards. Two things sit side by side here: the chapter notes,
+which carry the notation and the derivations in the form I needed to follow
+them, and the Python labs, which are the end-of-chapter exercises worked in a
+notebook with the output kept.
+
+I am a population geneticist by training, so what I am after is the part of
+statistical learning that transfers to genomic and phenotypic data: what a
+method assumes, where the bias-variance trade-off bites, and how to tell a
+fitted model from a useful one. The notes reflect that bias. They are not a
+substitute for the book.
+
+## How this is organised
+
+**Chapter notes** are markdown files, one per chapter, written in Obsidian and
+rendered here unchanged. Mathematics is set in LaTeX. Figures redrawn from the
+text live in `figs/`.
+
+**Python labs** are Jupyter notebooks. Outputs are saved with the notebook and
+the site does not re-execute anything, so what you see is what ran on my
+machine. Each notebook can be downloaded and run as-is given the `ISLP`
+package.
+
+## Progress
+
+::: {.progress-table}
+
+| Chapter | Notes | Lab |
+|---|---|---|
+| 1. Introduction | [Notation and framing](chapter_notes/Introduction.md) | [Python basics](python_labs/ISLP_Intro.ipynb) |
+| 2. Statistical learning | [Included above](chapter_notes/Introduction.md#what-is-statistical-learning) | [Included above](python_labs/ISLP_Intro.ipynb) |
+| 3. Linear regression | [planned]{.status-todo} | [planned]{.status-todo} |
+| 4. Classification | [planned]{.status-todo} | [planned]{.status-todo} |
+| 5. Resampling methods | [planned]{.status-todo} | [planned]{.status-todo} |
+| 6. Model selection and regularisation | [planned]{.status-todo} | [planned]{.status-todo} |
+| 7. Moving beyond linearity | [planned]{.status-todo} | [planned]{.status-todo} |
+| 8. Tree-based methods | [planned]{.status-todo} | [planned]{.status-todo} |
+| 9. Support vector machines | [planned]{.status-todo} | [planned]{.status-todo} |
+| 10. Deep learning | [planned]{.status-todo} | [planned]{.status-todo} |
+| 11. Survival analysis and censored data | [planned]{.status-todo} | [planned]{.status-todo} |
+| 12. Unsupervised learning | [planned]{.status-todo} | [planned]{.status-todo} |
+| 13. Multiple testing | [planned]{.status-todo} | [planned]{.status-todo} |
+
+:::
+
+## Source and credit
+
+The book is by James, Witten, Hastie, Tibshirani and Taylor, and the text,
+datasets and official labs are freely available:
+
+- Book website: <https://www.statlearning.com>
+- `ISLP` package and official labs: <https://github.com/intro-stat-learning/ISLP>
+
+All credit for the original material belongs to the authors. Everything in this
+repository is my own writing and code, and any error in it is mine.

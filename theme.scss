@@ -1,0 +1,104 @@
+/*-- scss:defaults --*/
+
+// Same palette as the portfolio site so the two read as one hand.
+$blue:      #5480a7;
+$green:     #56A754;
+$brown:     #A77B54;
+$navy:      #2c3f51;
+$paper:     #f2f6f9;
+$deepnavy:  #122336;
+
+$primary:   $blue;
+$secondary: $green;
+
+$font-family-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Helvetica, Arial, sans-serif !default;
+$font-size-root: 13pt;
+$headings-font-weight: 800;
+
+$body-bg:        $paper;
+$body-color:     $navy;
+$headings-color: $navy;
+$border-color:   #dce5ec;
+
+$link-color:       $blue;
+$link-hover-color: $green;
+$link-decoration:  underline;
+
+$navbar-bg: $deepnavy;
+$navbar-fg: white;
+$navbar-hl: white;
+
+$footer-bg: $deepnavy;
+$footer-fg: white;
+
+$toc-color:         $blue;
+$toc-active-border: $blue;
+
+$code-block-bg: white;
+$code-color:    black;
+$code-bg:       white;
+
+
+/*-- scss:rules --*/
+
+body { font-family: "Roboto", sans-serif; }
+
+h1, .h1, h2, .h2, h3, .h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+}
+
+// Notes files carry several top level headings each, so h1 inside the body
+// needs a rule of its own to stop it competing with the page title.
+#quarto-document-content h1 {
+  font-size: 1.6rem;
+  margin-block-start: 2.6rem;
+  padding-block-end: 0.35rem;
+  border-block-end: 2px solid rgba($blue, 0.35);
+}
+
+#quarto-document-content h2 {
+  font-size: 1.22rem;
+  margin-block-start: 2rem;
+}
+
+#quarto-document-content h3 {
+  font-size: 1.05rem;
+  color: rgba($navy, 0.85);
+}
+
+// ---- Sidebar -------------------------------------------------------------
+.sidebar-navigation .sidebar-section .sidebar-item { font-size: 0.92rem; }
+
+.sidebar-navigation .sidebar-item-text { line-height: 1.35; }
+
+.sidebar nav[role="doc-toc"] ul > li > a.active { font-weight: 700; }
+
+// ---- Code ----------------------------------------------------------------
+div.sourceCode {
+  border: 1px solid $border-color;
+  border-radius: 4px;
+}
+
+pre code { font-size: 0.86rem; }
+
+// ---- Figures -------------------------------------------------------------
+figure img, p img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+figcaption, .figure-caption {
+  font-size: 0.85rem;
+  color: rgba($navy, 0.7);
+}
+
+// ---- Display maths -------------------------------------------------------
+// The notes lean on block equations; narrow screens need them to scroll
+// inside their own box rather than push the page sideways.
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem;
+}

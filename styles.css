@@ -1,0 +1,24 @@
+/* Callout used on the overview page for the progress table. */
+.progress-table table {
+  font-size: 0.92rem;
+  width: 100%;
+}
+
+.progress-table td:first-child {
+  white-space: nowrap;
+}
+
+/* Status pills in the progress table. */
+.status-done,
+.status-wip,
+.status-todo {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.status-done { background: #e2f0e1; color: #2f6a2d; }
+.status-wip  { background: #fdf1e3; color: #8a5f2e; }
+.status-todo { background: #e9eef3; color: #5a6b7a; }
