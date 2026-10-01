@@ -58,8 +58,8 @@ $$
 \end{bmatrix}
 =
 \begin{bmatrix}
-1 \times 5 + 2 \times 7 && 1 \times 6 + 2 \times 8 \\
-3 \times 5 + 4 \times 7 && 3 \times 6 + 4 \times 8
+1 \times 5 + 2 \times 7 & 1 \times 6 + 2 \times 8 \\
+3 \times 5 + 4 \times 7 & 3 \times 6 + 4 \times 8
 \end{bmatrix}
 $$
 
