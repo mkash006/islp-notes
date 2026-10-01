@@ -6,6 +6,7 @@ $p$ denotes the number of variables available to make predictions; predictors or
 In general $x_{ij}$ is used to denote $i^{th}$ observation of $j^{th}$ variable -> Therefore, $i$ is always used to index over samples or observations and $j$ is always used to index over variables.
 
 Capital bold letters are used to illustrate matrices, for example: $\mathbf{X}$  denotes the following $n \times p$  matrix whose $(i,j)$ observation ($x_{ij}$) is our data point for $j^{th}$ variable
+
 $$
 \mathbf{X} = \begin{bmatrix}
 x_{11} & x_{12} & \cdots & x_{1p} \\
@@ -14,22 +15,29 @@ x_{21} & x_{22} & \cdots & x_{2p} \\
 x_{n1} & x_{n2} & \cdots & x_{np}
 \end{bmatrix}
 $$
+
 data vectors for different variable (whose length is $n$) are denoted by lowercase bold letters $\mathbf{x}$, and are always column vectors like following 
-$$\mathbf{x_j} = \begin{bmatrix}
+
+$$
+\mathbf{x_j} = \begin{bmatrix}
 x_{1j}\\
 x_{2j}\\
 \vdots\\
 x_{nj}
 \end{bmatrix}
 $$
+
 feature vectors whose length is equal to number of variables $p$ are denoted by lowercase normal letter $x$; see following example
-$$x_i = \begin{bmatrix}
+
+$$
+x_i = \begin{bmatrix}
 x_{i1}\\
 x_{i2}\\
 \vdots\\
 x_{ip}
 \end{bmatrix}
 $$
+
 The variable which is being used to make predictions is denoted by $y_i$ for $i^{th}$ observation. This can be represented in column vector notation similar to above
 
 Scalar are denoted as $a \in \mathbb{R}$ 
@@ -62,19 +70,26 @@ To illustrate the definition consider following example:
 Suppose we observed a quantitative dependent variable $y_i$ (belonging to vector $\mathbf{y}$) and $p$ predictors $\mathbf{x_1,x_2} \cdots \mathbf{x_p}$ (predictors can also be written as $\mathbf{X} = \mathbf{[x_1,x_2,}$ $\cdots, \mathbf{x_p]}$ )
 
 Assume that there is a function $f$ such that
-$$\mathbf{y} = f(\mathbf{X}) + \epsilon$$ where $\epsilon$ is an random error drawn from normal distribution with mean $0$
+
+$$\mathbf{y} = f(\mathbf{X}) + \epsilon$$
+
+where $\epsilon$ is an random error drawn from normal distribution with mean $0$
 then statistical learning can be defined as learning function $f$ such that we can make predictions and inferences with it.
 
 ## Predictions
 Statistical learning procedures often learn $\hat{f}$ which are our estimate of $f$. The learnt function can help us predict our response variable:
-$$\hat{y} = \hat{f}(\mathbf{X})$$ where $\hat{y}$ is our estimated data. One thing to note is that our estimate will always have reducible and irreducible error. Reducible error can be decreased by using a more appropriate learning procedure but irreducible error ($\epsilon$) cannot be decreased since it results from unmeasured (predictors that were not considered) or unmeasurable variation.
-$$
-\begin{align}
-E[(y-\hat{y})^{2}] = E[(f(\mathbf{X})+ \epsilon)- (\hat{f}(\mathbf{X}))^2] \\
-= (f(\mathbf{X}) - \hat{f}(\mathbf{X}))^2 + var(\epsilon)
-\end{align}
+
+$$\hat{y} = \hat{f}(\mathbf{X})$$
+
+where $\hat{y}$ is our estimated data. One thing to note is that our estimate will always have reducible and irreducible error. Reducible error can be decreased by using a more appropriate learning procedure but irreducible error ($\epsilon$) cannot be decreased since it results from unmeasured (predictors that were not considered) or unmeasurable variation.
 
 $$
+\begin{aligned}
+E[(y-\hat{y})^{2}] &= E[(f(\mathbf{X})+ \epsilon)- (\hat{f}(\mathbf{X}))^2] \\
+&= (f(\mathbf{X}) - \hat{f}(\mathbf{X}))^2 + var(\epsilon)
+\end{aligned}
+$$
+
 where $(f(\mathbf{X}) - \hat{f}(\mathbf{X}))^2$ is reducible error and $var(\epsilon)$ is irreducible error
 irreducible error provides upper bound on accuracy of our prediction, however that upper bound is not always known 
 ## Inference
@@ -114,10 +129,14 @@ In regression setting, MSE is the most commonly used metric of model accuracy, i
 $$
 MSE = \frac{1}{n}\sum^{n}_{i=1}(y_i-\hat{f}(x_i))
 $$
+
 where $\hat{f}$ is our prediction function iterating over all observations in our training dataset.
 
 Above given equation, given that it is iterating over training dataset, is called training MSE. However, this is not of much interest to us. Test MSE, which iterates over previously unseen observations is more informative and it is given by a similar equation:
-$$Ave(y_o-\hat{f}(x_o))$$ where $(x_o,y_o)$ are previously unseen observations not present in the training dataset. 
+
+$$Ave(y_o-\hat{f}(x_o))$$
+
+where $(x_o,y_o)$ are previously unseen observations not present in the training dataset. 
 
 Training MSE and test MSE have a very complex relationship depending on the $f$. And it is generally not true that $\hat{f}$ with lowest training MSE will also have lowest test MSE. 
 
@@ -131,7 +150,8 @@ The relationship between test MSE and training MSE is dependent on the nature of
 
 ### Bias-Variance Trade-Off
 The U-shaped curve for test MSE we saw in the previous section is a result of two competing properties that arise when we write the mathematical expression for the expectation of test MSE:
-$$E[(y_o-\hat{f}(x_o))^{2}] = Var(\hat{f}(x_o)) + [bias(\hat{f}(x_o))]^2 + Var(\epsilon) $$
+
+$$E[(y_o-\hat{f}(x_o))^{2}] = Var(\hat{f}(x_o)) + [bias(\hat{f}(x_o))]^2 + Var(\epsilon)$$
 
 This equation tells us that to minimize the expected test MSE, we need to simultaneously minimize variance of $\hat{f}$ and squared bias of $\hat{f}$.
 Variance of $\hat{f}$ is computed by deriving estimates produced from the same test data set but different training datasets.
@@ -145,9 +165,11 @@ Bias refers to $E[\hat{f}(x_o)] - f(x_o)$. So basically, how much is the average
 The MSE analogous for classification models is training and test error rates which count the number of mistakes (misclassified observations by $\hat{f}$) in our sample space which can be either training data or test data. Following equations denote the mathematical expression for these error rates
 
 **Training error rate**
+
 $$
 \frac{1}{n}\sum^n_{i=1}I(y_i\neq \hat{y}_i)
 $$
+
 where $I(y_i \neq \hat{y}_i)$ is the identity function which is 1 when the inequality is met and 0 otherwise. 
 
 Similarly, **Test error rate** is
@@ -157,17 +179,21 @@ $$Ave(I(y_i \neq \hat{y}_i))$$
 ### Bayes Classifier
 It can be formally proved that the test error rate is minimized by a classifier which assigns the most likely class conditioned on the predictor variables. Or in other words the bayes classifier which assigns each test observation with predictor vector $x_o$ to class $j$ for which following conditional probability is maximum. 
 
-$$Pr(Y=j | X =x _o)$$
+$$Pr(Y=j | X = x_o)$$
+
 Since bayes classifier will always choose the class label for which above probability is maximum the maximum error rate is $1-{max}_jPr(Y=j|X=x_o)$ where ${max}_j$ denotes the class which was picked due to max probability. Following this Bayes error rate is:
 
 
 $$1-E[({max}_jPr(Y=j | X = x_o))]$$
+
 This error rate is analogous to irreducible error and bayes classifier is an ideal classifier which is never possible with real data since we would not know the conditional probabilities of class labels conditioned over predictor variable vector.
 ### K- nearest neighbors classifier
 Generally, different classification approaches try to estimate conditional distribution of $Y$ given $X$ and use this distribution to classify a given test observation to class with highest estimated probability. One such approach is K-nearest neighbors (KNN); which picks $K$  points in training dataset which are closest to test observation $x_o$, this set is represented by $\mathcal{N}_o$ . Then conditional probability for class $j$ is estimated as fraction of values is $\mathcal{N}_o$ whose response values is equal to $j$:
+
 $$
 Pr(Y=j | X=x_o) = \frac{1}{K}\sum_{i\in \mathcal{N}_o}I(y_i=j)
 $$
+
 KNN can be pretty good estimator of bayes classifier however it also has a flexibility parameter which is function of $\frac{1}{K}$. At lower values of $K$ we get highly flexible decision boundary, this corresponds to low bias and high variance. At higher values of $K$ we get inflexible decision boundary however this corresponds to a classifier with high bias but low variance.
 
 The U-shaped test error rate curve in response to increasing flexibility also exists in classification problems so these are also subject to bias-variance trade-off. 
